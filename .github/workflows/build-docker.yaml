@@ -12,8 +12,8 @@ jobs:
       - name: Login en Docker Hub
         uses: docker/login-action@v3  # Acción oficial de Docker para login
         with:
-          username: ${{ secrets.user }}      # Secreto con tu usuario de Docker Hub (ej: "hugito")
-          password: ${{ secrets.token }}     # Secreto con el token de acceso (ej: "dckr_pat_...")
+          username: ${{ secrets.USER }}      # Secreto con tu usuario de Docker Hub (ej: "hugito")
+          password: ${{ secrets.TOKEN }}     # Secreto con el token de acceso (ej: "dckr_pat_...")
 
       - name: construir imagen
         run: docker build . -t hugito/api-usuarios:latest
