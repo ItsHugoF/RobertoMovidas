@@ -8,7 +8,15 @@ jobs:
     steps: 
       - name: checkout
         uses: actions/checkout@v4
+
+      - name: Login en Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.USER }}            # Usas el secreto "USER"
+          password: ${{ secrets.DOCKER_HUB_TOKEN }} # Usas el secreto "DOCKER_HUB_TOKEN"
+
       - name: construir imagen
-        run:  docker build . -t hugito/api-usuarios:latest
+        run: docker build . -t hugito/api-usuarios:latest
+
       - name: subir imagen a docker
-        run:  docker push hugito/api-usuarios:latest
+        run: docker push hugito/api-usuarios:latest
