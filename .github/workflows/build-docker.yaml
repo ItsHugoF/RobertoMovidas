@@ -9,6 +9,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       - name: construir imagen
-        run:  docker build . -t Hugito/api-usuarios:latest
+        run:  docker build . -t hugito/api-usuarios:latest
       - name: subir imagen a docker
-        run:  docker push Hugito/api-usuarios:latest
+        run:  docker push hugito/api-usuarios:latest
