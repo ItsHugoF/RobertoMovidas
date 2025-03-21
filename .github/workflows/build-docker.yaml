@@ -1,0 +1,14 @@
+name: Crear y subir imagen de docker file
+on: 
+  [workflow_dispatch]
+
+jobs:
+  publish_images:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: construir imagen
+        run:  docker build . -t Hugito/api-usuarios:latest
+      - name: subir imagen a docker
+        run:  docker push Hugito/api-usuarios:latest
